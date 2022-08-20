@@ -62,7 +62,7 @@ def main():
 
 if __name__ == '__main__':
     # 表
-    re_value_excel = '修改列值.xlsx'
+    re_value_excel = '../../EthanFileData/修改列值.xlsx'
     # 生成表
     result_excel = 'Result_data.xlsx'
 

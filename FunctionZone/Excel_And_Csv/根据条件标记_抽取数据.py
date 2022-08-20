@@ -62,9 +62,9 @@ def main():
 
 if __name__ == '__main__':
     # 表1路径
-    excel1_path = r'Ethan_File_Data/JP_CQ_2022_W16.xlsx'
+    excel1_path = r'../../Ethan_File_Data/JP_CQ_2022_W16.xlsx'
     # 表2路径
-    excel2_path = r'Ethan_File_Data/ASIN-Vendor+pairs+exclusions_30_May.xlsx'
+    excel2_path = r'../../Ethan_File_Data/ASIN-Vendor+pairs+exclusions_30_May.xlsx'
     # 表2标注完后，另存的路径，避免覆盖表2原表
     excel2_save_path = r'ASIN-Vendor+pairs+exclusions_30_May_Result.xlsx'
     # 空表3路径
