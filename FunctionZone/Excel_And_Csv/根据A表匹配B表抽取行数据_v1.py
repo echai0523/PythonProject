@@ -53,8 +53,8 @@ def main():
 
 
 if __name__ == '__main__':
-    A_xlsx = "A表.xlsx"
-    B_xlsx = "B表.xlsx"
+    A_xlsx = "../../EthanFileData/A表.xlsx"
+    B_xlsx = "../../EthanFileData/B表.xlsx"
     out_path = "Result_A表.xlsx"
 
     main()
