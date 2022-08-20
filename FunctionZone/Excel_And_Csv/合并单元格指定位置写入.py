@@ -46,7 +46,7 @@ def main():
 
 
 if __name__ == '__main__':
-    info_path = "学生信息表.xlsx"
-    count_path = "统计表.xlsx"
+    info_path = "../../EthanFileData/学生信息表.xlsx"
+    count_path = "../../EthanFileData/统计表.xlsx"
 
     main()
