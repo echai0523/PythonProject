@@ -2,13 +2,18 @@
 
 """
 Author: Ethan Chai
-Date: 2022/8/18 15:31
+Date: 2022/8/22 17:50
 
-input:
-
+input: 
 output: 
-Short Description: 
+Short Description:
     - 知识点：
+        - os.getcwd()       当前工作目录
+        - os.chdir(path)    切换目录
+        - os.close()        关闭文件
+        - os.stat()         查看文件属性
+        - os.sep            根据你所处的平台，自动采用相应的分隔符号。
+            - os.sep.join() 自动采用相应的分隔符号拼接路径
         - os.getmtime() 修改时间，给出自纪元以来的秒数
         - os.stat() 给出自纪元以来的秒数
             - st_mode（保护位）
@@ -22,18 +27,29 @@ Short Description:
             - st_mtime （最新内容修改时间）
             - st_ctime （取决于平台；最新元数据更改的时间）在Unix上，或在Windows上创建的时间）
         - datetime.fromtimestamp() 秒数转为时间类型
-    - 需求：
-        读取文件修改时间、保存时间、访问时间，按行写入csv或txt
 Change History:
 
 """
 import os
 from datetime import datetime
-import pandas as pd
 
 
-def main():
-    file_attr = os.stat(filepath)
+def os_getcwd():
+    """当前目录"""
+    p1 = os.getcwd()
+    print(p1)
+
+
+def os_chdir():
+    """切换目录"""
+    os.chdir(r"C:\Users\echai\Downloads\process\660 humor物流小车2d单连续帧通用")
+    p1 = os.getcwd()
+    print(p1)
+
+
+def os_stat():
+    """获取文件属性"""
+    file_attr = os.stat("filepath")
     # os.stat_result(st_mode=33206, st_ino=16044073672860753, st_dev=716125111, st_nlink=1, st_uid=0, st_gid=0, st_size=411, st_atime=1660807956, st_mtime=1660803331, st_ctime=1660803210)
     print(file_attr)
     # 访问时间
@@ -46,9 +62,15 @@ def main():
     ctime = datetime.fromtimestamp(file_attr.st_ctime)
     print(ctime)  # 2022-08-18 14:13:30.340448
 
-    df = pd.DataFrame()
+
+def main():
+    # 当前目录
+    os_getcwd()
+    # 切换目录
+    os_chdir()
+    # 获取文件属性
+    os_stat()
 
 
 if __name__ == '__main__':
-    filepath = 'filepath.txt'
     main()
