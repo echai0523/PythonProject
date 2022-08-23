@@ -20,7 +20,6 @@ Short Description:
         - read_sas                    to_sas
         - read_clipboard              to_clipboard
         - read_pickle                 to_pickle
-
 Change History:
 
 """
