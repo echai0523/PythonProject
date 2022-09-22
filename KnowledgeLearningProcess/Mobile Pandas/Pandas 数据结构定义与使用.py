@@ -5,11 +5,9 @@ Author: Ethan Chai
 Date: 2022/8/23 10:23
 
 input:
-    - import pandas
-        - pip install pandas
-    - import numpy
-        - pip install numpy
-output: 
+
+output:
+
 Short Description: 
     - 知识点：
         - pandas数据结构

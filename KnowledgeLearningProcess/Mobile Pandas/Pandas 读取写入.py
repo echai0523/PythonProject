@@ -27,7 +27,7 @@ import pandas as pd
 import numpy as np
 
 
-def csv_read_to():
+def read_to_csv():
     # 常用
     filepath_or_buffer = "可以是文件路径也可以是url"
     filepath_or_buffer = "http://appen-pe.oss-cn-shanghai.aliyuncs.com/example_data/pandas_kt/350_0af71498f139412cb602f67a18371098.csv"
@@ -68,7 +68,7 @@ def csv_read_to():
     )
 
 
-def excel_read_to():
+def read_to_excel():
     pd.read_excel(
         "路径或者url",
         sheet_name=0,  # "默认是第一个sheet  可以是int,str,list,None None是全部 list和None返回的是字典"
@@ -114,8 +114,9 @@ def excel_read_to():
         df3.to_excel(writer, sheet_name='Sheet_name_3_3_3')
 
 
-def sql_read_to():
+def read_to_sql():
     import psycopg2
+    from sqlalchemy import create_engine
     RDS_DATA_DB_HOST = 'host'
     RDS_DATA_DB_USER = '账号'
     RDS_DATA_DB_PSW = '密码'
@@ -148,7 +149,7 @@ def sql_read_to():
     # ‘multi’: Pass multiple values in a single INSERT clause.
 
 
-def json_read_to():
+def read_to_json():
     # json读取
     pd.read_json(path_or_buf=None, orient=None, typ='frame', dtype=None, convert_axes=None, convert_dates=True,
                  keep_default_dates=True, numpy=False, precise_float=False, date_unit=None, encoding=None,
@@ -247,12 +248,12 @@ def json_read_to():
     pd.json_normalize(data, "A", record_prefix="Prefix.")
 
 
-def table_read_to():
+def read_to_table():
     # table读取
     df = pd.read_table("test.txt", names=["col1", "col2"], sep=' ')
 
 
-def html_read_to():
+def read_to_html():
     # 网页表格很多 : 可以添加参数attrs根据id或者classname获取
     dfs = pd.read_html('https://www.gairuo.com/p/pandas-io', attrs={'id': 'table'})
 

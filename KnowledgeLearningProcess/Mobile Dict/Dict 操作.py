@@ -44,8 +44,19 @@ def operation_dict():
     print(sorted(dic))  # 对键排序
 
 
-operation_dict()
+def sorted_dic():
+    """排序"""
+    dic = {'0': 'a', '2': 'd', '1': 'b', '4': 'c'}
+    # 根据key排序
+    dic1 = sorted(dic.items(), key=lambda x: x[0], reverse=False)
+    print(dic1)
+    # 根据value排序
+    dic2 = sorted(dic.items(), key=lambda x: x[1], reverse=False)
+    print(dic2)
 
+
+operation_dict()
+sorted_dic()
 
 
 

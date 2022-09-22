@@ -10,12 +10,16 @@ Short Description:
     - 知识点：
         - os.getcwd()       当前工作目录
         - os.chdir(path)    切换目录
+        - os.mkdir(name, mode, dir_fd)        创建目录 创建一级目录
+        - os.makedirs(name, mode=0o777, exist_ok=False)  创建目录 创建多层目录
+            - name：目录名
+            - mode：要为目录设置的权限数字模式，默认的模式为 0o777 (八进制)。
+            - exist_ok：是否在目录存在时触发异常。如果exist_ok为False（默认值），则目录已存在的触发FileExistsError异常；如果exist_ok为True，则目录已存在不会触发FileExistsError异常。
         - os.close()        关闭文件
-        - os.stat()         查看文件属性
         - os.sep            根据你所处的平台，自动采用相应的分隔符号。
-            - os.sep.join() 自动采用相应的分隔符号拼接路径
+        - os.sep.join() 自动采用相应的分隔符号拼接路径
         - os.getmtime() 修改时间，给出自纪元以来的秒数
-        - os.stat() 给出自纪元以来的秒数
+        - os.stat()         查看文件属性(给出自纪元以来的秒数)
             - st_mode（保护位）
             - st_ino（索引节点号）
             - st_dev（设备）
@@ -26,7 +30,7 @@ Short Description:
             - st_atime（最新访问时间）
             - st_mtime （最新内容修改时间）
             - st_ctime （取决于平台；最新元数据更改的时间）在Unix上，或在Windows上创建的时间）
-        - datetime.fromtimestamp() 秒数转为时间类型
+
 Change History:
 
 """

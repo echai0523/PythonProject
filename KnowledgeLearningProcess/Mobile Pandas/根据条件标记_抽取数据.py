@@ -5,8 +5,8 @@ Author: Ethan Chai
 Date: 2022/8/19 9:18
 
 input:
-    - 表1的路径：eg: [JP_CQ_2022_W16.xlsx](https://pan.baidu.com/s/1ltiPROzQvF_9oKuHkOod3Q?pwd=icpy)
-    - 表2的路径：eg: [ASIN-Vendor+pairs+exclusions_30_May.xlsx](https://pan.baidu.com/s/1VYfsoIJ2kUyoAm4VfYbdaw?pwd=icpy)
+    - 表1的路径：eg: JP_CQ_2022_W16.xlsx
+    - 表2的路径：eg: ASIN-Vendor+pairs+exclusions_30_May.xlsx
     - 表3的路径：eg: ROOS_Carton+Quantity.xlsx
 output: 
 Short Description:
