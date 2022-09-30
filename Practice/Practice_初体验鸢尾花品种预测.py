@@ -8,7 +8,7 @@ from sklearn.svm import SVC  # 支持向量机模型
 
 # 1，首先学会利用pandas对数据进行读取操作，将iris.csv数据读取，每一行前面四列数据存储在变量X中，最后一列存入变量y中
 # 使用pandas.read_csv(路径)方法，读取iris.csv
-iris_df = pd.read_csv("../EthanFileData/iris.csv")
+iris_df = pd.read_csv("../EthanFileData/csv/iris.csv")
 # print(type(iris_df))  # 类型DataFrame
 
 X = []  # 构建变量X为空列表存前面四列数据

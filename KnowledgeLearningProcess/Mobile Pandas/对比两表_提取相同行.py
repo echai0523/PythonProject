@@ -37,8 +37,8 @@ def main():
 
 
 if __name__ == '__main__':
-    base_path = '../../EthanFileData/学号表.xlsx'
-    info_path = '../../EthanFileData/学生信息表.xlsx'
+    base_path = '../../EthanFileData/xlsx/学号表.xlsx'
+    info_path = '../../EthanFileData/xlsx/学生信息表.xlsx'
     out_path = "Result_学生信息表.xlsx"
 
     main()

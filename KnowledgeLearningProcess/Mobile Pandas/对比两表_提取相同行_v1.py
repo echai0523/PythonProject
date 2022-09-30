@@ -5,8 +5,8 @@ Author: Ethan Chai
 Date: 2022/8/17 11:21
 
 input:
-    - A表 (链接: https://pan.baidu.com/s/1hyJUgl0qF7T41xmt7WhdTw?pwd=icpy)
-    - B表 (链接: https://pan.baidu.com/s/1hKamT7E1Emxy0UNrKI1kQw?pwd=icpy)
+    - A表
+    - B表
 output:
     - new_B表
 Short Description:

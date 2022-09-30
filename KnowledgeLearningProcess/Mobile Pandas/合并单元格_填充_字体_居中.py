@@ -5,9 +5,9 @@ Author: Ethan Chai
 Date: 2022/8/17 20:14
 
 input:
-    - 学生信息表.xlsx (链接: https://pan.baidu.com/s/1g_UbW46QVLcmjImJTt8mjA?pwd=icpy)
+    - 学生信息表.xlsx
 output:
-    - 统计表.xlsx (链接: https://pan.baidu.com/s/1eZ2K9gyU7f6nMMnXFrG7aQ?pwd=icpy)
+    - 统计表.xlsx
 Short Description: 
     - 知识点：
         - openpyxl
@@ -46,7 +46,7 @@ def main():
 
 
 if __name__ == '__main__':
-    info_path = "../../EthanFileData/学生信息表.xlsx"
-    count_path = "../../EthanFileData/统计表.xlsx"
+    info_path = "../../EthanFileData/xlsx/学生信息表.xlsx"
+    count_path = "../../EthanFileData/xlsx/统计表.xlsx"
 
     main()

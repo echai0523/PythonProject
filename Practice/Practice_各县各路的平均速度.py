@@ -35,7 +35,7 @@ def calculate_average(save_file_name, map_group, flag=False):
 
 
 # 按行读取txt所有行
-with open('../EthanFileData/【input】县区-道路等级-速度.txt', mode='r', encoding='gbk') as readfile:
+with open('../EthanFileData/txt/【input】县区-道路等级-速度.txt', mode='r', encoding='gbk') as readfile:
     lines = readfile.readlines()
 
 # 用于做映射{县-路: 速度list}

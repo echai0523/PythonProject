@@ -106,8 +106,8 @@ def main(csv_path):
 
 
 if __name__ == '__main__':
-    main("../../EthanFileData/City_State_Zipcode_100.csv")
-    # main("../../EthanFileData/City_State_Zipcode.csv")
+    main("../../EthanFileData/csv/City_State_Zipcode_100.csv")
+    # main("../../EthanFileData/csv/City_State_Zipcode.csv")
 
 
 
