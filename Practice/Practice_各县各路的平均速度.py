@@ -65,3 +65,26 @@ calculate_average('县_平均速度.txt', counties_group)
 # {路: 速度}
 calculate_average('路_平均速度.txt', road_group)
 
+
+def new_func():
+    line_map = dict()
+    with open('../EthanFileData/txt/【input】链接表格.txt', mode='r', encoding='gbk') as readfile:
+        line_lines = readfile.readlines()
+
+    for line in line_lines[1:]:
+        # 处理单行：去掉换行符,并以tab切割
+        road, tongxing, ziyouliu = line.strip('\n').split('\t')
+        line_map[road] = f'{tongxing} {ziyouliu}'
+
+    # 按行读取txt所有行
+    with open('../EthanFileData/txt/【input】原始表格.txt', mode='r', encoding='gbk') as readfile:
+        org_lines = readfile.readlines()
+
+    with open("合并结果.txt", mode='w', encoding='gbk') as writefile:
+        writefile.write("道路编号\t县区\t乡\t道路等级\t等级\t速度\t通行能力\t自由流速度\n")
+        for line in org_lines[1:]:
+            # 处理单行：去掉换行符,并以tab切割
+            num, counties, xiang, road, speed = line.strip('\n').split('\t')
+            tx, zyl = line_map[road].split()
+            writefile.write(f"{num}\t{counties}\t{xiang}\t{road}\t{speed}\t{tx}\t{zyl}\n")
+
