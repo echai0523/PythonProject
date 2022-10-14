@@ -15,6 +15,7 @@ Short Description:
             - name：目录名
             - mode：要为目录设置的权限数字模式，默认的模式为 0o777 (八进制)。
             - exist_ok：是否在目录存在时触发异常。如果exist_ok为False（默认值），则目录已存在的触发FileExistsError异常；如果exist_ok为True，则目录已存在不会触发FileExistsError异常。
+        - os.renames(old, new)      文件重命名(文件需要带绝对路径，同时可以实现剪切粘贴移动文件)
         - os.close()        关闭文件
         - os.sep            根据你所处的平台，自动采用相应的分隔符号。
             - python是跨平台的。在Windows上，文件的路径分隔符是'\'，在mac上是'/'。为了让代码在不同的平台上都能运行，那么路径应该写'\'还是'/'呢？
@@ -91,6 +92,26 @@ def os_sep():
     # path_join = f'{sep}'.join(['a', 'b'])
     path_join = os.sep.join([r"C:\Users\echai\PycharmProjects\PythonProject\FunctionZone", "Os_And_Csv"])
     print(path_join)
+
+
+def os_renames():
+    from peutils.fileutil import list_current_file
+
+    pth = r'/Users/PycharmProjects/SecretDocument/test'
+
+    files = list_current_file(pth, type='file', suffix='.png')
+    # 将1.png移动到SecretDocument下
+    for file in files:
+        # file = '/Users/PycharmProjects/SecretDocument/test/1.png'
+        new = file.replace('test/', '')
+        os.renames(file, new)
+
+    # 1.png文件 重命名/转格式
+    files = list_current_file(pth, type='file', suffix='.png')
+    for file in files:
+        # file = '/Users/PycharmProjects/SecretDocument/test/1.png'
+        new = file.replace('.png', '.jpg')
+        os.renames(file, new)
 
 
 def os_stat():
