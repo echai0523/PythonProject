@@ -134,8 +134,9 @@ def os_path():
     file = '/root/test/runoob.txt'  # 文件路径
 
     print("返回文件名: ", os.path.basename(file))  # 返回文件名
-    print("返回目录路径: ", os.path.dirname(file))  # 返回目录路径
-    print("分割文件名与路径: ", os.path.split(file))  # 分割文件名与路径
+    print("返回目录路径: ", os.path.dirname(file))  # 返回目录路径 /root/test
+    print("分割文件名与路径: ", os.path.split(file))  # 分割/root/test/runoob.txt文件名与路径 ('/root/test', 'runoob.txt')
+    print("分割文件夹名与路径: ", os.path.split(os.path.dirname(file)))  # 分割/root/test文件夹名与路径 ('/root', 'test')
     print("分割路径与文件后缀", os.path.splitext(file))  # 分割路径，返回路径名和文件扩展名的元组('/root/test/runoob', '.txt')
     print("将目录和文件名合成一个路径: ", os.path.join('root', 'test', 'runoob.txt'))  # 将目录和文件名合成一个路径
 
@@ -155,6 +156,8 @@ def main():
     # os_chdir()
     # # 分隔符号
     # os_sep()
+    # 文件重命名/迁移
+    # os_renames()
     # # 获取文件属性
     # os_stat()
 
