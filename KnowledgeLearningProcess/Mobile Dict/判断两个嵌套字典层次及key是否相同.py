@@ -28,5 +28,24 @@ def main():
     print(result)
 
 
+def read_json():
+    import json
+    from peutils.fileutil import list_current_file
+    # path1 = list_current_file(path='', type='file', suffix='.json')
+    # path2 = list_current_file(path='', type='file', suffix='.json')
+    for i in range(84, 95):
+        p1 = f""
+        p2 = f""
+
+        with open(p1, 'r', encoding='utf-8') as f1:
+            json1 = json.load(f1)
+        with open(p2, 'r', encoding='utf-8') as f2:
+            json2 = json.load(f2)
+
+        result = [i for i in diff(json1, json2)]
+        print(i, result)
+
+
 if __name__ == '__main__':
-    main()
+    # main()
+    read_json()
