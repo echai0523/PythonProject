@@ -17,7 +17,7 @@ from time import sleep
 df = pandas.read_csv("../../EthanFileData/csv/image1019.csv")
 driver = webdriver.Chrome('chromedriver.exe')
 
-for _, row in df[:3].iterrows():
+for _, row in df.iterrows():
     url = row["image_url"]
     # url = 'https://image.lexica.art/md/de1b607f-0b24-4a8c-a55b-7f3b69d6a87b'
     driver.get(url)
