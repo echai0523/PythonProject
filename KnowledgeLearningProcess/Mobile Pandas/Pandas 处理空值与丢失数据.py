@@ -103,7 +103,12 @@ def parse_nan():
     df.iloc[1, 2] = np.nan
 
     # dropna
-    print(df.dropna(axis=0, how='any'))
+    # axis：轴。0或'index'，表示按行删除；1或'columns'，表示按列删除。
+    # how：筛选方式。‘any’，表示该行/列只要有一个以上的空值，就删除该行/列；‘all’，表示该行/列全部都为空值，就删除该行/列。
+    # thresh：非空元素最低数量。int型，默认为None。如果该行/列中，非空元素数量小于这个值，就删除该行/列。
+    # subset：指定筛选某列或某行。如果axis=0或者‘index’，subset中元素为列的索引；如果axis=1或者‘column’，subset中元素为行的索引。由subset限制的子区域，是判断是否删除该行/列的条件判断区域。
+    # inplace：是否原地替换。布尔值，默认为False。如果为True，则在原DataFrame上进行操作，返回值为None。
+    print(df.dropna(axis=0, how="any", thresh=None, subset=['annotation'], inplace=False))
 
     # fillna
     print(df.fillna(value=0))
@@ -112,6 +117,28 @@ def parse_nan():
     print(df.isnull())  # True
     # np.any() 找到缺失值
     print(np.any(df.isnull()) == True)
+
+
+def category_map():
+    """
+    同一个xlsx，不同len的映射
+    xlsx格式:
+        number_name    number_number    type_name    type_number    correlation_name    correlation_number
+            a               1               aa           1              aaa                     1
+            a               1               aa           1              aaa                     1
+            a               1               aa           1              aaa                     1
+            a               1               aa           1
+            a               1               aa           1
+            a               1
+            a               1
+    """
+    category_df = pd.read_excel("category_file")
+    number_map = {row['number_name']: int(row['number_number']) for _, row in
+                       category_df[["number_number", "number_name"]].iterrows() if pd.notnull(row['number_number'])}
+    type_map = {row['type_name']: int(row['type_number']) for _, row in category_df.iterrows() if
+                     pd.notnull(row['type_number'])}
+    correlation_map = {row['correlation_name']: int(row['correlation_number']) for _, row in category_df.iterrows()
+                            if pd.notnull(row['correlation_number'])}
 
 
 def main():
