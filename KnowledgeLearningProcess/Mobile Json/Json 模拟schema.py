@@ -182,7 +182,9 @@ from collections import defaultdict
 
 
 if __name__ == "__main__":
-    json_path = "../../test_jg.json"
+    # json_path = "../../test_jg.json"
+    # json_path = "../../test_cr_f60.json"
+    json_path = "../../test_cr_f120.json"
     with open(json_path, 'r') as fr:
         data = json.load(fr)
         sc = SchemaParseV1(data=data)
