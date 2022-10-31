@@ -48,6 +48,18 @@ from gooey.gui.util.freeze import getResourcePath
     use_cmd_args=False)
 def main():
     parser = GooeyParser(description='"工具说明:" + "\n" + "   " + "1.本工具仅作为xxx使用"')
+    """metavar
+    展示在前面的给用户看的，如果没有metavar的时候，第一个参数会展示到界面上。
+    """
+
+    """action
+    store_true: 勾选选项
+    """
+
+    """gooey_options
+    可以用来对用户输入的数据进行验证，如果不符合时会进行提示。
+    """
+
     """ widget
     '控件名'： '控件类型'
     'CheckBox': '复选框',
@@ -67,13 +79,29 @@ def main():
     # choices:选择列表
     # default:设置默认
     parser.add_argument('Date', widget="DateChooser")  # 日期选择框
-    parser.add_argument(option_strings=['-u', '--username'], dest='账号', widget="TextField")  # 账号输入框
+    parser.add_argument(option_strings=['-u', '--username'], dest='账号', widget="TextField")  # - 可选 # 账号输入框
     parser.add_argument(option_strings=['-p', '--password'], dest='密码', widget="TextField")  # 密码输入框
     parser.add_argument(option_strings=['-v', '--verify_number'], dest='验证码', widget="TextField")  # 验证码输入框
     parser.add_argument('Filename', widget="FileChooser")  # 文件选择框
     parser.add_argument(option_strings=['-f', '--file_path'], dest="待匹配文件路径", widget="FileChooser")  # 文件选择框
     parser.add_argument("path", help="请选择要整理的文件路径：", widget="DirChooser")   # 文件夹选择框
     parser.add_argument('annotation_type', choices=['a', 'b', 'c', 'd'], default='a', metavar="annotation type", widget='Dropdown')  # 单选框下拉列表
+    parser.add_argument(
+        'reductionFactor',
+        metavar='长宽压缩比',
+        help='例如3，需要填入大于等于1的整数',
+        gooey_options={
+            'validator': {
+                'test': '1 <= int(user_input)',     # 输入的值必须大于等于1
+                'message': '长宽压缩比需大于等于1'      # 描述信息
+            }
+        })
+    parser.add_argument(
+        '-isConvertBlack',
+        metavar='是否输出黑白版本',
+        action='store_true',  # 定义为勾选选项
+        help='需要输出黑白版本请勾选')
+
     parser.parse_args()   # 获取参数  # 也是运行的关键
 
     #     parser = GooeyParser(description="Extracting frames from a movie using FFMPEG")

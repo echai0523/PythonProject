@@ -199,7 +199,7 @@ subok默认为False
 其中 `matrix` 是矩阵，将在之后的内容中介绍。
 
 ```python
-a = np.matrix('1 2 7; 3 4 8; 5 6 9')
+a = np.matrix('1 2 7; 3 4 8; 5 6 9')
 print(type(a))  # class 'numpy.matrix'>
 print(a)  # [[1 2 7]
           #  [3 4 8]
@@ -1212,7 +1212,7 @@ print(x)
 返回给定维度和类型的新数组，填充 fill_value。
 
 ```python
-numpy.full(shape, fill_value, dtype=None, order='C')
+numpy.full(shape, fill_value, dtype=None, order='C')
 ```
 
 | 参数       | 描述                                                         |

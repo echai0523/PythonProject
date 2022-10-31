@@ -16,10 +16,10 @@ Short Description:
             def get_duration_from_cv2(filename):
                 cap = cv2.VideoCapture(filename)
                 if cap.isOpened():
-                rate = cap.get(5)
-                frame_num =cap.get(7)
-                duration = frame_num/rate
-                return duration
+                    rate = cap.get(5)
+                    frame_num =cap.get(7)
+                    duration = frame_num/rate
+                    return duration
                 return -1
         - 方法三：FFmpeg  pip install ffmpy3
             import ffmpy3

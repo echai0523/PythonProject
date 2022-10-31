@@ -38,6 +38,12 @@ def main():
     print(datetime.now().strftime('%Y/%m/%d'))  # 2022/08/24
     print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))  # 2022-08-24 16:42:55
 
+    print(time.strftime("%H:%M:%S", time.gmtime(5555)))  # 秒数转换为时分秒
+    seconds = 5555
+    m, s = divmod(seconds, 60)  # divmod 返回商和余数
+    h, m = divmod(m, 60)
+    print("%02d:%02d:%02d" % (h, m, s))  # 秒数转换为时分秒
+
 
 if __name__ == '__main__':
     # main()
