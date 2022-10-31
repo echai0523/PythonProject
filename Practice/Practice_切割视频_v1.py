@@ -117,7 +117,7 @@ def interval_split(video_file, video_save_path, video_time, interval_time, video
         start_time = stop_time
     else:
         # 设置目标文件名 原路径/原名_起始时间_原音频结束时间.mp4
-        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{video_time}.mp4"))
+        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{int(video_time)}.mp4"))
         # 切割视频
         split_video(
             video_file=video_file,
@@ -170,7 +170,7 @@ def main():
         'input_time',
         metavar="输入时间",
         widget='TextField',
-        default='10s',
+        default='10',
         help='间隔切割 eg: 以1分30秒切割(90) or (00:01:30)\n指定切割 必须是[开始时间,结束时间] eg: ["15", "30"] or ["00:00:00", "00:00:30"]'
     )
     # 可选内容
@@ -178,9 +178,8 @@ def main():
 
     args = parser.parse_args()
 
-    video_original_path = args.original_path
-    video_save_path = args.save_path
-    # split_type = args.split_type
+    video_original_path = args.video_original_path
+    video_save_path = args.video_save_path
     input_time = literal_eval(args.input_time) if all(s in args.input_time for s in ["[", "]"]) else args.input_time
     video_type = args.video_type
 
@@ -242,8 +241,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
 
 
 
