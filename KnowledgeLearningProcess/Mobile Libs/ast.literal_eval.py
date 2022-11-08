@@ -24,7 +24,7 @@ from pprint import pprint
 
 def str_to_list():
     type_str = "['1, 2', '1, 2']"
-    list_ = ast.literal_eval(type_str)
+    list_ = literal_eval(type_str)
     # <class 'list'> ['1, 2', '1, 2']
     print(type(list_), list_)
 
