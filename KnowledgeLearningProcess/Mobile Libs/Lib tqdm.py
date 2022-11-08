@@ -22,6 +22,7 @@ Change History:
     
 """
 import time
+from tqdm import tqdm
 from tqdm.auto import trange
 
 """基于迭代对象运行: tqdm(iterator)"""
