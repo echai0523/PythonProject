@@ -101,28 +101,15 @@ def interval_split(video_file, video_save_path, video_time, interval_time, video
     @return:
     """
     video_name = os.path.basename(video_file)
-    start_time = 0
-    # int取整排除0.秒, 将其归入最后一段视频进行切割
-    while start_time < int(video_time - interval_time):
-        stop_time = start_time + interval_time
+    for start_time in range(0, int(video_time)+1, interval_time):
+        stop_time = min(start_time + interval_time, video_time)
         # 设置目标文件名 原路径/原名_起始时间_结束时间.mp4
-        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{stop_time}.mp4"))
+        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{int(stop_time)}.mp4"))
         # 切割视频
         split_video(
             video_file=video_file,
             start_time=s_hms(start_time),
             interception_time=s_hms(interval_time),
-            output_path=target_file
-        )
-        start_time = stop_time
-    else:
-        # 设置目标文件名 原路径/原名_起始时间_原音频结束时间.mp4
-        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{int(video_time)}.mp4"))
-        # 切割视频
-        split_video(
-            video_file=video_file,
-            start_time=s_hms(start_time),
-            interception_time=s_hms(video_time-start_time),
             output_path=target_file
         )
 
@@ -152,7 +139,7 @@ def range_split(video_file, video_save_path, start, end, video_type=".mp4"):
 
 @Gooey(program_name='视频切分工具')
 def main():
-    parser = GooeyParser()
+    parser = GooeyParser(description=f"工具说明:\n\t1. 视频命名中带空格符均不处理")
     # 必选内容
     parser.add_argument(
         'video_original_path',
@@ -180,11 +167,13 @@ def main():
 
     video_original_path = args.video_original_path
     video_save_path = args.video_save_path
+    os.makedirs(video_save_path, exist_ok=True)
     input_time = literal_eval(args.input_time) if all(s in args.input_time for s in ["[", "]"]) else args.input_time
     video_type = args.video_type
 
-    # video_original_path = "/Users/echai/Desktop/切割视频脚本测试/inpath"
-    # video_save_path = "/Users/echai/Desktop/切割视频脚本测试/outpath"
+    # video_original_path = "../EthanFileData/mp4"
+    # video_save_path = "outpath"
+    # os.makedirs(video_save_path, exist_ok=True)
     # input_time = "10"
     # # input_time = "00:00:10"
     # # input_time = '["10", "30"]'
