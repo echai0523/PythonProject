@@ -90,8 +90,11 @@ def os_sep():
     # 当前平台采用的分隔符号
     print(sep)
     # path_join = f'{sep}'.join(['a', 'b'])
-    path_join = os.sep.join([r"C:\Users\echai\PycharmProjects\PythonProject\FunctionZone", "Os_And_Csv"])
-    print(path_join)
+
+    # path_join_win = os.sep.join([r"C:\Users\echai\PycharmProjects\PythonProject\FunctionZone", "Os_And_Csv"])
+    # print(path_join_win)
+    path_join_mac = os.sep.join([r"/Users/echai/PycharmProjects/PythonProject/FunctionZone", "Os_And_Csv"])
+    print(path_join_mac)
 
 
 def os_renames():
@@ -155,14 +158,14 @@ def main():
     # # 切换目录
     # os_chdir()
     # # 分隔符号
-    # os_sep()
+    os_sep()
     # 文件重命名/迁移
     # os_renames()
     # # 获取文件属性
     # os_stat()
 
     # 文件路径
-    os_path()
+    # os_path()
 
 
 if __name__ == '__main__':
