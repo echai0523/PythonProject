@@ -9,7 +9,36 @@ input:
 output:d
 
 Short Description:
+    - 针对剔除points的情况，pcd头部描述信息需要更新 宽/高/点云数量
+        # 用于头部描述，更新最新的宽/高/点云数量，继用原pcd的宽/高/点云数量会导致新pcd无法使用pcd_py3读取
+        width = points = 0
+        points_str = ""
+        for row_pcd_point in points_list:
+            x, y, z = row_pcd_point
+            # 剔除y<0的点
+            if y >= 0:
+                width += 1
+                points += 1
+                new_line = f'{x} {y} {z}'
+                points_str += f"{new_line.strip()}\n"
 
+        # pcd头部
+        header_string = f"# .PCD v0.7 - Point Cloud Data file format\n" \
+                        f"VERSION 0.7\n" \
+                        f"FIELDS x y z\n" \
+                        f"SIZE 4 4 4\n" \
+                        f"TYPE F F F\n" \
+                        f"COUNT 1 1 1\n" \
+                        f"WIDTH {width}\n" \
+                        f"HEIGHT 1\n" \
+                        f"VIEWPOINT 0.0 0.0 0.0 1.0 0.0 0.0 0.0\n" \
+                        f"POINTS {points}\n" \
+                        f"DATA ascii\n"
+        # 重写pcd文件
+        out_pcd_path = "2021-06-26-15-46-29_c3_x1358_y504_z158_x1358_y504_z155_12.pcd"
+        with open(out_pcd_path, 'w') as writefile:
+            writefile.write(header_string)
+            writefile.write(points_str)
 Change History:
 
 """
