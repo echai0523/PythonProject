@@ -24,7 +24,7 @@ Change History:
 import glob
 import os
 from argparse import ArgumentParser
-import numpy
+import numpy as np
 
 
 def parse_i():
@@ -74,7 +74,7 @@ def parse_i():
     # 指定路径下所有的bin文件
     for j in glob.glob(os.path.join(directory, '*.bin')):
         file_name = os.path.basename(j)
-        data = numpy.fromfile(j, dtype="float32")
+        data = np.fromfile(j, dtype="float32")
         try:
             if dimension == 3:
                 assert method == '补i取xyzi', f"{dimension}维bin数据只支持: '补i取xyzi'"
@@ -91,7 +91,7 @@ def parse_i():
                 a = a[:4]  # 取xyzi, method设定不需要补i时直接切取xyzi
                 list1.append(a)
 
-            arr = numpy.array(list1, dtype="float32")
+            arr = np.array(list1, dtype="float32")
             # 保存补完后的bin至copy文件夹
             arr.tofile(os.path.join(new_directory, file_name))
 
@@ -106,7 +106,7 @@ def parse_i():
 
 def main():
     # 读取bin文件
-    bin_path = "../../EthanFileData/1654516484442306304.bin"
+    bin_path = "../../EthanFileData/File binary/1665739801.287219200_1.bin"
     custom_single_line_bin_data = np.fromfile(bin_path, dtype=np.dtype("float32"))
     bin_result = custom_single_line_bin_data.reshape(-1, 4)
     # bin的shape [N点数, 4]

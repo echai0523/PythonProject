@@ -9,8 +9,8 @@ Change History:
 """
 import numpy as np
 
-columns_path = "../../EthanFileData/npy/columns.npy"
-values_path = "../../EthanFileData/npy/values.npy"
+columns_path = "../../EthanFileData/File txt/columns.npy"
+values_path = "../../EthanFileData/File txt/values.npy"
 
 # 注意编码方式
 pre_train_columns = np.load(columns_path, allow_pickle=True, encoding="latin1")

@@ -9,6 +9,8 @@ input:
 output:d
 
 Short Description:
+    - 读取pcd文件
+        point_pcd_result = pcd_py3.PointCloud.from_path(pcd_path)
     - 针对剔除points的情况，pcd头部描述信息需要更新 宽/高/点云数量
         # 用于头部描述，更新最新的宽/高/点云数量，继用原pcd的宽/高/点云数量会导致新pcd无法使用pcd_py3读取
         width = points = 0

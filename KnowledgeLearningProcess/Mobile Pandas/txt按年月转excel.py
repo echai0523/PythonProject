@@ -79,9 +79,9 @@ def function():
 
 
 # txt包路径
-folder_path = '../../EthanFileData/txt/伊犁河流域mci'
+folder_path = '../../EthanFileData/File txt/伊犁河流域mci'
 # 输出的Excel包路径
-excel_save_path = '../EthanFileData/txt/伊犁河流域mci_excel'
+excel_save_path = '../EthanFileData/File txt/伊犁河流域mci_excel'
 os.makedirs(excel_save_path, exist_ok=True)
 
 function()

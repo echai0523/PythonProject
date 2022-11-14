@@ -129,7 +129,7 @@ def spider():
 
 if __name__ == '__main__':
     spider()
-    with open('movies.txt', 'a', encoding='utf-8') as f:
+    with open('movies.File txt', 'a', encoding='utf-8') as f:
         for movie in movies:
             f.write("=" * 30)
             f.write('\n' * 2)

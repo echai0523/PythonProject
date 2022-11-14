@@ -43,8 +43,8 @@ def tif_to_png(image_path, save_file_path):
 
 
 if __name__ == '__main__':
-    root_path = r'../../EthanFileData/Images'
-    save_path = r'../../EthanFileData/Images/tif-png'
+    root_path = r'../../EthanFileData/File img'
+    save_path = r'../../EthanFileData/File img/tif-png'
     os.makedirs(save_path, exist_ok=True)
     image_files = list_current_file(path=root_path, type='file', suffix='.tif')
     for image_file in image_files:

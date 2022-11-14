@@ -14,7 +14,7 @@ import pyautogui, pandas
 from time import sleep
 
 
-df = pandas.read_csv("../../EthanFileData/csv/image1019.csv")
+df = pandas.read_csv("../../EthanFileData/xlsx/image1019.csv")
 driver = webdriver.Chrome('chromedriver.exe')
 
 for _, row in df.iterrows():

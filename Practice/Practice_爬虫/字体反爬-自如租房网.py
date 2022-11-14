@@ -12,9 +12,9 @@ Short Description:
     - 处理流程：
         - 构建脚本框架
         - 分析租房信息生成
-            - 页面分析 (../EthanFileData/Images/3ac96999b99f41f7bcd47414c40ac1dd.png)
-            - 字体映射图片 (../EthanFileData/Images/69fc41a0b7cab6e4f7be8e4564fa79b8.png)
-            - css接口 (../EthanFileData/Images/179746d2214e4900b0d6117e95a38919.png)
+            - 页面分析 (../EthanFileData/File img/3ac96999b99f41f7bcd47414c40ac1dd.png)
+            - 字体映射图片 (../EthanFileData/File img/69fc41a0b7cab6e4f7be8e4564fa79b8.png)
+            - css接口 (../EthanFileData/File img/179746d2214e4900b0d6117e95a38919.png)
             由上图分析得知，下一步需要获取到图片url及px像素值，而通过图片识别的结果及px像素值也无法得出对应的映射字体，还需找到另外一个值background-size: auto 20px。
             分析多家租房价格后，发现图片是同一张。但为了防止后面有差别，将图片url全部提取出来，一对一处理。
             注意：价格固定，但图片和像素值是动态变化的，只要最终计算的结果与房源对应且价格一直，就说明成功了。

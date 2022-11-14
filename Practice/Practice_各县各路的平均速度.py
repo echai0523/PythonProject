@@ -36,7 +36,7 @@ def calculate_average(save_file_name, map_group, flag=False):
 
 def one_func():
     # 按行读取txt所有行
-    with open('../EthanFileData/txt/【input】县区-道路等级-速度.txt', mode='r', encoding='gbk') as readfile:
+    with open('../EthanFileData/File txt/【input】县区-道路等级-速度.txt', mode='r', encoding='gbk') as readfile:
         lines = readfile.readlines()
 
     # 用于做映射{县-路: 速度list}
@@ -69,7 +69,7 @@ def one_func():
 
 def two_func():
     line_map = dict()
-    with open('../EthanFileData/txt/【input】链接表格.txt', mode='r', encoding='gbk') as readfile:
+    with open('../EthanFileData/File txt/【input】链接表格.txt', mode='r', encoding='gbk') as readfile:
         line_lines = readfile.readlines()
 
     for line in line_lines[1:]:
@@ -78,7 +78,7 @@ def two_func():
         line_map[road] = f'{tongxing} {ziyouliu}'
 
     # 按行读取txt所有行
-    with open('../EthanFileData/txt/【input】原始表格.txt', mode='r', encoding='gbk') as readfile:
+    with open('../EthanFileData/File txt/【input】原始表格.txt', mode='r', encoding='gbk') as readfile:
         org_lines = readfile.readlines()
 
     with open("【output】.txt", mode='w', encoding='gbk') as writefile:
@@ -94,7 +94,7 @@ def three_func():
     # 用于做映射{县-路: 速度list}
     counties_xiang_road = defaultdict(list)
 
-    with open('../EthanFileData/txt/【input】分速度区间计算.txt', mode='r', encoding='gbk') as readfile:
+    with open('../EthanFileData/File txt/【input】分速度区间计算.txt', mode='r', encoding='gbk') as readfile:
         lines = readfile.readlines()
     for line in lines[1:]:
         # 处理单行：去掉换行符,并以tab切割

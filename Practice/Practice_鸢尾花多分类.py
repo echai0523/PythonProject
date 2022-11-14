@@ -21,7 +21,7 @@ import warnings  # 警告, 参考：https://blog.konghy.cn/2017/12/16/python-war
 warnings.filterwarnings('ignore')  # filterwarnings()将规则添加到过滤器  "ignore" 忽略匹配的警告
 
 # 读入数据集
-data = pd.read_csv(r'../EthanFileData/txt/iris.txt', header=None, names=['x1', 'x2', 'x3', 'x4', 'y'])
+data = pd.read_csv(r'../EthanFileData/File txt/iris.txt', header=None, names=['x1', 'x2', 'x3', 'x4', 'y'])
 x = data.iloc[:, :-1]
 y = data.iloc[:, -1:]
 # print(y)

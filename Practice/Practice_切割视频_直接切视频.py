@@ -126,8 +126,8 @@ def range_split(video_file, video_save_path, start, end, video_type=".mp4"):
     """
     start_seconds = hms_s(start)
     end_seconds = hms_s(end)
-    # 设置目标文件名 原路径/原名_起始时间_结束时间.mp4
-    target_file = os.path.join(video_save_path, os.path.basename(video_file).replace(video_type, f"_{start_seconds}_{end_seconds}.mp4"))
+    # 设置目标文件名 原路径/原名_起始时间_结束时间.File audio video
+    target_file = os.path.join(video_save_path, os.path.basename(video_file).replace(video_type, f"_{start_seconds}_{end_seconds}.File audio video"))
     # 切割视频
     split_video(
         video_file=video_file,
@@ -171,7 +171,7 @@ def main():
     input_time = literal_eval(args.input_time) if all(s in args.input_time for s in ["[", "]"]) else args.input_time
     video_type = args.video_type
 
-    # video_original_path = "../EthanFileData/mp4"
+    # video_original_path = "../EthanFileData/File audio video"
     # video_save_path = "outpath"
     # os.makedirs(video_save_path, exist_ok=True)
     # input_time = "10"

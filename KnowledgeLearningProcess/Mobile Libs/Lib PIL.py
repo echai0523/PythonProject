@@ -7,7 +7,7 @@ output  :
 Short Description:
     - Image.open()
         - 读取本地img:
-            - Image.open("../../EthanFileData/Images/11060.jpg")
+            - Image.open("../../EthanFileData/File img/11060.jpg")
         - 读取urlimg:
             - url = "http://www.bizhi360.com/meinv/11060.html"
             - Image.open(requests.get(url).content)
