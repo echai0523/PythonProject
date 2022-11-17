@@ -250,8 +250,51 @@ def gooey_encoding():
 
 
 if __name__ == '__main__':
-    try:
-        gooey_encoding_gb2312()
-    except UnicodeDecodeError:
-        gooey_encoding()
+    # try:
+    #     gooey_encoding_gb2312()
+    # except UnicodeDecodeError:
+    #     gooey_encoding()
+
+    video_file = '/Users/echai/Desktop/test/out/235_1668151574_0_20.mp4'
+    save_path = '/Users/echai/Desktop/test/test_out'
+
+    # os.system(f'ffmpeg -re -i {video_file} -c copy -f segment -segment_format mp4 {save_path + "/%d.mp4"}')
+    # os.system(f'ls -l {save_path + "/*.mp4"}')
+    # os.system(f'ffprobe -v quiet -show_packets -select_streams v {save_path + "/0.mp4"} 2> x|grep pts_time | tail -n 3')
+    # os.system(f'ffmpeg -re -i {video_file} -c copy -f segment -segment_format mp4 -segment_list_type ffconcat -segment_list output.lst {save_path + "/%d.mp4"}')
+    # os.system(f'ffmpeg -re -i {video_file} -c copy -f segment -segment_format mp4 -segment_times 3,9,12 {save_path + "/%d.mp4"}')
+
+    # -ss指定剪切开头部分
+    # os.system(f'ffmpeg -ss 10 -i {video_file} -c copy {save_path + "/10s-end.mp4"}')
+    # 查看起始时间(开始)与持续时间(长度)
+    # start_time = 0.000000
+    # start_time = 0.000000
+    os.system(f'ffprobe -v quiet -show_format {video_file} |grep start_time; ffprobe -v quiet -show_format {save_path + "/10s-end.mp4"}|grep start_time')
+    # duration = 20.016000
+    # duration = 10.016000
+    os.system(f'ffprobe -v quiet -show_format {video_file} |grep duration; ffprobe -v quiet -show_format {save_path + "/10s-end.mp4"}|grep duration')
+
+    # -t指定视频总长度
+    # os.system(f'ffmpeg -i {video_file} -c copy -t 10 -copyts {save_path + "/start-10s.mp4"}')
+    # 查看起始时间(开始)与持续时间(长度)
+    # start_time = 0.000000
+    # start_time = 0.000000
+    os.system(f'ffprobe -v quiet -show_format {video_file} |grep start_time; ffprobe -v quiet -show_format {save_path + "/start-10s.mp4"}|grep start_time')
+    # duration = 20.016000
+    # duration = 10.008000
+    os.system(f'ffprobe -v quiet -show_format {video_file} |grep duration; ffprobe -v quiet -show_format {save_path + "/start-10s.mp4"}|grep duration')
+
+    # -output_ts_offset指定输出start_time
+    # 前面会拼接120s的黑屏视频，从120s开始接10s剪切部分
+    # os.system(f'ffmpeg -i {video_file} -c copy -t 10 -output_ts_offset 120 {save_path + "/offset-10.mp4"}')
+    os.system(f'ffmpeg -ss 10 -i {video_file} -c copy -t 8 -output_ts_offset 0 {save_path + "/offset-10.mp4"}')
+    # 查看信息
+    # start_time=120.000000
+    # duration=130.008000
+    os.system(f'ffprobe -v quiet -show_format {save_path + "/offset-10.mp4"}')
+
+
+
+
+
 

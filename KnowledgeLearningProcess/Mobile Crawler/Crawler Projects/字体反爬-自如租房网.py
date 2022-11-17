@@ -28,7 +28,7 @@ Short Description:
         - 解决图片映射问题
             - 通过前面分析，需要处理图片映射，大概思路就是将图片中的数字整合成一个字典或字符串，通过像素值进行提取。
         - 数据提取
-            - 这里我们需要用到ocr图像识别技术。推荐两种ocr识别库：ddddocr、tesseract。(../PythonLib/ocr库安装_win.md)
+            - 这里我们需要用到ocr图像识别技术。推荐两种ocr识别库：ddddocr、tesseract。(../PythonLib/Lib ocr.md)
 
 Change History:
 
