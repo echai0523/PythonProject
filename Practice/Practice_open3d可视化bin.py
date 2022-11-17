@@ -20,7 +20,7 @@ warnings.filterwarnings('ignore')
 
 # kitti_path = "../EthanFileData/bin/1665739801.287219200_1.bin"
 # l = np.fromfile(kitti_path, dtype=np.float32).reshape(-1, 5)[:, :3]
-kitti_path = "../EthanFileData/File binary/1665739801.287219200_2.bin"
+kitti_path = "../EthanFileData/Binary/1665739801.287219200_2.bin"
 l = np.fromfile(kitti_path, dtype=np.float32).reshape(-1, 4)[:, :3]
 ind = np.where(
     (l[:, 0] > -55) & (l[:, 0] < 55) &

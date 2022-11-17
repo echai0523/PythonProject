@@ -81,7 +81,7 @@ def main(csv_path):
         tg.write(filename)
 
 
-main("../../EthanFileData/File xlsx csv/result_report_A5992-Li140535_2022-10-11T07_21_31.584310Z[UTC].csv")
+main("../../EthanFileData/XlsxCsv/result_report_A5992-Li140535_2022-10-11T07_21_31.584310Z[UTC].csv")
 if __name__ == '__main__':
     h = WooeyBaseZipHandlerFile(
         project_desc="A9数据转为TextGrid",

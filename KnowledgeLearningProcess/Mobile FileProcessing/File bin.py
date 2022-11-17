@@ -106,7 +106,7 @@ def parse_i():
 
 def main():
     # 读取bin文件
-    bin_path = "../../EthanFileData/File binary/1665739801.287219200_1.bin"
+    bin_path = "../../EthanFileData/Binary/1665739801.287219200_1.bin"
     custom_single_line_bin_data = np.fromfile(bin_path, dtype=np.dtype("float32"))
     bin_result = custom_single_line_bin_data.reshape(-1, 4)
     # bin的shape [N点数, 4]

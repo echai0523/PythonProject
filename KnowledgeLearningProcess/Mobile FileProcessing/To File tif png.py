@@ -34,9 +34,9 @@ def png_to_tig(image_path, save_file_path):
 
 
 if __name__ == '__main__':
-    root_path = r'../../EthanFileData/File img'
-    save_png_path = r'../../EthanFileData/File img/tif-png'
-    save_tif_path = r'../../EthanFileData/File img/png-tif'
+    root_path = r'../../EthanFileData/Img'
+    save_png_path = r'../../EthanFileData/Img/tif-png'
+    save_tif_path = r'../../EthanFileData/Img/png-tif'
 
     os.makedirs(save_png_path, exist_ok=True)
     image_files = list_current_file(path=root_path, type='file', suffix='.tif')

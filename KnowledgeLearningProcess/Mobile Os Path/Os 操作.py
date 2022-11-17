@@ -134,14 +134,14 @@ def os_stat():
 
 
 def os_path():
-    file = '/root/test/runoob.File txt'  # 文件路径
+    file = '/root/test/runoob.Txt'  # 文件路径
 
     print("返回文件名: ", os.path.basename(file))  # 返回文件名
     print("返回目录路径: ", os.path.dirname(file))  # 返回目录路径 /root/test
-    print("分割文件名与路径: ", os.path.split(file))  # 分割/root/test/runoob.txt文件名与路径 ('/root/test', 'runoob.File txt')
+    print("分割文件名与路径: ", os.path.split(file))  # 分割/root/test/runoob.txt文件名与路径 ('/root/test', 'runoob.Txt')
     print("分割文件夹名与路径: ", os.path.split(os.path.dirname(file)))  # 分割/root/test文件夹名与路径 ('/root', 'test')
-    print("分割路径与文件后缀", os.path.splitext(file))  # 分割路径，返回路径名和文件扩展名的元组('/root/test/runoob', '.File txt')
-    print("将目录和文件名合成一个路径: ", os.path.join('root', 'test', 'runoob.File txt'))  # 将目录和文件名合成一个路径
+    print("分割路径与文件后缀", os.path.splitext(file))  # 分割路径，返回路径名和文件扩展名的元组('/root/test/runoob', '.Txt')
+    print("将目录和文件名合成一个路径: ", os.path.join('root', 'test', 'runoob.Txt'))  # 将目录和文件名合成一个路径
 
     print("输出最近访问时间: ", os.path.getatime(file))  # 输出最近访问时间
     print("输出文件创建时间: ", os.path.getctime(file))  # 输出文件创建时间
