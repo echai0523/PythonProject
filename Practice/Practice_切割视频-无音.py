@@ -13,8 +13,8 @@ import os
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from peutils.fileutil import list_current_file
 
-file_path = '../EthanFileData/File audio video/'
-out_path = '../EthanFileData/File audio video/out/'
+file_path = '../EthanFileData/AudioVideo/'
+out_path = '../EthanFileData/AudioVideo/out/'
 time_set = 10  # 设置切割时间
 
 os.makedirs(out_path, exist_ok=True)

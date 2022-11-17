@@ -161,8 +161,8 @@ def main():
     tmp_path = args.tmp_path
     interval = int(args.interval)
 
-    # root_path = '../EthanFileData/File audio video'
-    # tmp_path = '../EthanFileData/File audio video/out'
+    # root_path = '../EthanFileData/AudioVideo'
+    # tmp_path = '../EthanFileData/AudioVideo/out'
     # interval = 10
 
     os.makedirs(tmp_path, exist_ok=True)
