@@ -82,11 +82,17 @@ def split_video(video_file, start_time, interception_time, output_path):
     @return: 切割视频 并 进行视频段保存
     """
     # -t 间隔时间， -to 截止时间
-    # ff = f'ffmpeg -i {video_file} -ss {start_time} -t {interception_time} -vcodec copy -acodec copy {output_path}'  # 开头会有1s黑屏
-    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -i {video_file} -vcodec copy -acodec copy {output_path}'  # -ss -t 放在 -i 前面 避免黑屏
-    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -acodec copy {output_path}'    # -accurate_seek 剪切时间更加精确
-    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -avoid_negative_ts 1 {output_path}'    # "avoid_negative_ts 1" 编码格式采用的copy, 下一片段会接上一片段最后1s
-    ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -avoid_negative_ts 0 {output_path}'    # 编码格式采用的copy, 且无缝连接上一片段
+
+    # 开头会有1s黑屏
+    # ff = f'ffmpeg -i {video_file} -ss {start_time} -t {interception_time} -vcodec copy -acodec copy {output_path}'
+    # -ss -t 放在 -i 前面 避免黑屏
+    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -i {video_file} -vcodec copy -acodec copy {output_path}'
+    # -accurate_seek 剪切时间更加精确
+    ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -acodec copy {output_path}'
+    # "avoid_negative_ts 1" 编码格式采用的copy, 下一片段会接上一片段1段
+    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -avoid_negative_ts 1 {output_path}'
+    # 编码格式采用的copy, 且无缝连接上一片段
+    # ff = f'ffmpeg -ss {start_time} -t {interception_time} -accurate_seek -i {video_file} -vcodec copy -avoid_negative_ts 0 {output_path}'
     os.system(ff)
 
 
@@ -101,10 +107,11 @@ def interval_split(video_file, video_save_path, video_time, interval_time, video
     @return:
     """
     video_name = os.path.basename(video_file)
-    for start_time in range(0, int(video_time)+1, interval_time):
+    for start_time in range(0, int(video_time) + 1, interval_time):
         stop_time = min(start_time + interval_time, video_time)
         # 设置目标文件名 原路径/原名_起始时间_结束时间.mp4
-        target_file = os.path.join(video_save_path, video_name.replace(video_type, f"_{start_time}_{int(stop_time)}.mp4"))
+        target_file = os.path.join(video_save_path,
+                                   video_name.replace(video_type, f"_{start_time}_{int(stop_time)}.mp4"))
         # 切割视频
         split_video(
             video_file=video_file,
@@ -124,63 +131,19 @@ def range_split(video_file, video_save_path, start, end, video_type=".mp4"):
     @param video_type: 视频类型
     @return:
     """
-    start_seconds = hms_s(start)
-    end_seconds = hms_s(end)
-    # 设置目标文件名 原路径/原名_起始时间_结束时间.File audio video
-    target_file = os.path.join(video_save_path, os.path.basename(video_file).replace(video_type, f"_{start_seconds}_{end_seconds}.File audio video"))
+    # 设置目标文件名 原路径/原名_起始时间_结束时间.mp4
+    target_file = os.path.join(video_save_path,
+                               os.path.basename(video_file).replace(video_type, f"_{int(start)}_{int(end)}.mp4"))
     # 切割视频
     split_video(
         video_file=video_file,
-        start_time=start,
-        interception_time=s_hms(end_seconds - start_seconds),
+        start_time=s_hms(start),
+        interception_time=s_hms(end - start),
         output_path=target_file
     )
 
 
-@Gooey(program_name='视频切分工具')
-def main():
-    parser = GooeyParser(description=f"工具说明:\n\t1. 视频命名中带空格符均不处理")
-    # 必选内容
-    parser.add_argument(
-        'video_original_path',
-        metavar='原视频所在目录',
-        widget="DirChooser",
-        help='请选择原视频文件目录'
-    )
-    parser.add_argument(
-        'video_save_path',
-        metavar='生成视频存放目录',
-        widget="DirChooser",
-        help='请选择生成视频存放目录'
-    )
-    parser.add_argument(
-        'input_time',
-        metavar="输入时间",
-        widget='TextField',
-        default='10',
-        help='间隔切割 eg: 以1分30秒切割(90) or (00:01:30)\n指定切割 必须是[开始时间,结束时间] eg: ["15", "30"] or ["00:00:00", "00:00:30"]'
-    )
-    # 可选内容
-    parser.add_argument('-video_type', metavar='视频类型', widget="TextField", default='.mp4')
-
-    args = parser.parse_args()
-
-    video_original_path = args.video_original_path
-    video_save_path = args.video_save_path
-    os.makedirs(video_save_path, exist_ok=True)
-    input_time = literal_eval(args.input_time) if all(s in args.input_time for s in ["[", "]"]) else args.input_time
-    video_type = args.video_type
-
-    # video_original_path = "../EthanFileData/File audio video"
-    # video_save_path = "outpath"
-    # os.makedirs(video_save_path, exist_ok=True)
-    # input_time = "10"
-    # # input_time = "00:00:10"
-    # # input_time = '["10", "30"]'
-    # # input_time = '["00:00:15", "00:00:30"]'
-    # video_type = '.mp4'
-    # input_time = literal_eval(input_time) if all(s in input_time for s in ["[", "]"]) else input_time
-
+def process_func(video_original_path, video_save_path, input_time, video_type):
     # 原始视频文件 -> list
     original_files = list_current_file(path=video_original_path, type="file", suffix=video_type)
     print("原始视频文件集视频条数：", len(original_files))
@@ -210,14 +173,16 @@ def main():
         # 指定切割
         if isinstance(input_time, list):
             start, end = input_time
-            if ":" not in start:
-                start = s_hms(int(start))
-            if ":" in end:
+            # ["00:00:05", "00:00:15"]
+            if isinstance(start, str) and isinstance(end, str):
+                start = hms_s(start)
                 # 结束时间若大于视频总时长，则end==视频总时长
-                end = end if hms_s(end) < video_total_time else s_hms(video_total_time)
+                end = min(hms_s(end), video_total_time)
+            # [5, 15]
             else:
+                start = float(start)
                 # 结束时间若大于视频总时长，则end==视频总时长
-                end = s_hms(int(end)) if int(end) < video_total_time else s_hms(video_total_time)
+                end = min(float(end), video_total_time)
 
             range_split(
                 video_file=original_file,
@@ -228,8 +193,65 @@ def main():
             )
 
 
-if __name__ == '__main__':
+def main():
+    parser = GooeyParser(description=f"工具说明:\n\t1. 视频命名中带空格符均不处理")
+    # 必选内容
+    parser.add_argument(
+        'video_original_path',
+        metavar='原视频所在目录',
+        widget="DirChooser",
+        help='请选择原视频文件目录'
+    )
+    parser.add_argument(
+        'video_save_path',
+        metavar='生成视频存放目录',
+        widget="DirChooser",
+        help='请选择生成视频存放目录'
+    )
+    parser.add_argument(
+        'input_time',
+        metavar="输入时间",
+        widget='TextField',
+        default='10',
+        help='间隔切割 例以1分30秒切割 eg: 90 or 00:01:30\n指定切割 必须是[开始时间,结束时间] eg: [15, 30] or ["00:00:00", "00:00:30"]'
+    )
+    # 可选内容
+    parser.add_argument('-video_type', metavar='视频类型', widget="TextField", default='.mp4')
+
+    args = parser.parse_args()
+
+    video_original_path = args.video_original_path
+    video_save_path = args.video_save_path
+    os.makedirs(video_save_path, exist_ok=True)
+    # input_time = literal_eval(args.input_time) if all(s in args.input_time for s in ["[", "]"]) else args.input_time
+    input_time = literal_eval(args.input_time) if args.input_time.startswith('[') and args.input_time.endswith(']') else args.input_time
+    video_type = args.video_type
+
+    # video_original_path = "/Users/echai/Desktop/test/in"
+    # video_save_path = "/Users/echai/Desktop/test/out"
+    # # input_time = "5"
+    # # input_time = "00:00:10"
+    # # input_time = '[5, 15]'
+    # input_time = '["00:00:05", "00:00:30"]'
+    # video_type = '.mp4'
+    # input_time = literal_eval(input_time) if all(s in input_time for s in ["[", "]"]) else input_time
+
+    process_func(video_original_path, video_save_path, input_time, video_type)
+
+
+@Gooey(program_name='视频切分工具', encoding='gb2312')
+def gooey_encoding_gb2312():
     main()
 
 
+@Gooey(program_name='视频切分工具')
+def gooey_encoding():
+    main()
+
+
+if __name__ == '__main__':
+    try:
+        gooey_encoding_gb2312()
+    except UnicodeDecodeError:
+        gooey_encoding()
 
