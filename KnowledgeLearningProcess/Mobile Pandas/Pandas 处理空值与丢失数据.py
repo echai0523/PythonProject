@@ -11,7 +11,7 @@ Short Description:
         - isnull()
         - notnull()
         - dropna() dropna存在缺失值则丢弃该行/列。
-            - axis={'0':丢掉整列, '1':丢掉整行}
+            - axis={'1':丢掉整列, '0':丢掉整行}
             - how={'any':存在缺失值, 'all':整行/列都是缺失值}
         - fillna() 填写缺失的值
         - isnull() 缺失值用True代替，其他值用False代替
@@ -107,7 +107,7 @@ def parse_nan():
     # how：筛选方式。‘any’，表示该行/列只要有一个以上的空值，就删除该行/列；‘all’，表示该行/列全部都为空值，就删除该行/列。
     # thresh：非空元素最低数量。int型，默认为None。如果该行/列中，非空元素数量小于这个值，就删除该行/列。
     # subset：指定筛选某列或某行。如果axis=0或者‘index’，subset中元素为列的索引；如果axis=1或者‘column’，subset中元素为行的索引。由subset限制的子区域，是判断是否删除该行/列的条件判断区域。
-    # inplace：是否原地替换。布尔值，默认为False。如果为True，则在原DataFrame上进行操作，返回值为None。
+    # inplace：是否原地替换。默认为False，False需要进行赋值给新变量。如果为True，则在原DataFrame上进行操作，返回值为None。
     print(df.dropna(axis=0, how="any", thresh=None, subset=['annotation'], inplace=False))
 
     # fillna
