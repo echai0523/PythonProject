@@ -57,12 +57,12 @@ points = [
     [{'x': 1946.042498, 'y': 1156.909241}, {'x': 1969.717583, 'y': 1156.909241}, {'x': 1969.717583, 'y': 1180.165298},
      {'x': 1946.042498, 'y': 1180.165298}]
 ]
-pth = "../EthanFileData/Img/test"
+pth = "../../EthanFileData/Img/test"
 os.makedirs(pth, exist_ok=True)
 for idx, point in enumerate(points):
     shot_new(
         # # cv2.imread(img_path)
-        # img_path="../EthanFileData/Img/ADAS_20221102-232058_242_0_1560158590915.jpeg",
+        # img_path="../../EthanFileData/Img/ADAS_20221102-232058_242_0_1560158590915.jpeg",
         img_path="https://github.com/echai0523/PythonProject/blob/main/EthanFileData/Img/ADAS_20221102-232058_242_0_1560158590915.jpeg",
         out_path=f"{pth}/{idx}.jpeg",
         left_up=[point[0]["x"], point[0]["y"]],
