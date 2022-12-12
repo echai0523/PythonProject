@@ -42,7 +42,7 @@ def cv2_draw_box_line(image_path, left_up: tuple, right_down: tuple):
 def pil_draw_box_line(image_path, leftup_rightdown: tuple):
     """
     支持url 和 本地路径，坐标值 int 或 float
-    leftup_rightdown都是矩形在图片的像素坐标位置，且坐标位置为int整型
+    leftup_rightdown都是矩形在图片的像素坐标位置
     :param image_path: 绘制框线后小图文件名
     :param leftup_rightdown: 左上角xy(最小点) and 右下角xy(最大点), type-> tuple(,,,,)
     :return:
