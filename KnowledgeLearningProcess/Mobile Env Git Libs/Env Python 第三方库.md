@@ -1,5 +1,13 @@
 # Pycharm第三方包
 
+- [生成requirements.txt](https://blog.csdn.net/Xuanze_xx/article/details/107948638)
+
+> 项目目录终端：`pip3 freeze > requirements.txt`
+
+- requirements.txt使用方式
+
+> 将requirements.txt复制到项目所在文件夹里面，新建的项目终端：`pip install -r requirements.txt`
+
 ## 请求
 
 ```python
