@@ -1,0 +1,194 @@
+{
+    "infos": {
+        "lidar_package_id": 1,
+        "lidar_frame_id": 1,
+        "image_id": "1669188569.300000429",
+        "lidar_path": "/HWJ/2022_11_24_twenty-sixth/annotate/MKZ-A3QV50_2022-11-23_15-16-53_11/lidar_undist/1669188569.300150871.bin",
+        "points": 104655,
+        "sensor_id": "top_lidar",
+        "description": "From qilinjiedao."
+    },
+    "attributes": {
+        "Time_type": "Daytime",
+        "Weather_type": "Cloudy",
+        "Road_type": "Straight"
+    },
+    "objects": [
+        {
+            "class": "Car",
+            "track_id": 1,
+            "points": 1023,
+            "bbox": {
+                "center_x": 16.829528171910685,
+                "center_y": 2.789809192810299,
+                "center_z": -1.256955658207553,
+                "length": 4.230443417924462,
+                "width": 1.9385116183236293,
+                "height": 1.5460886835848928,
+                "heading": -0.041808698166226246
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "full_visible",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 4,
+            "points": 264,
+            "bbox": {
+                "center_x": -33.30491471986122,
+                "center_y": 3.34615595615667,
+                "center_z": -0.9102208708495632,
+                "length": 5.294544350410537,
+                "width": 1.9677440713109176,
+                "height": 1.5561833281747075,
+                "heading": 0.005192088015752767
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "full_visible",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 7,
+            "points": 560,
+            "bbox": {
+                "center_x": -22.83354418182654,
+                "center_y": -4.030624175844546,
+                "center_z": -0.9836073552041232,
+                "length": 4.5,
+                "width": 1.9152098851561061,
+                "height": 1.585931592007327,
+                "heading": 0.005906541374955674
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "full_visible",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 9,
+            "points": 351,
+            "bbox": {
+                "center_x": -23.284674337553678,
+                "center_y": 0.11648013528465795,
+                "center_z": -1.0065679902226714,
+                "length": 4.500000000000001,
+                "width": 1.9062711574840887,
+                "height": 1.5402993038422919,
+                "heading": 0.017726270666352146
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "full_visible",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 10,
+            "points": 6,
+            "bbox": {
+                "center_x": -92.40362065013083,
+                "center_y": -0.3661162580177522,
+                "center_z": -0.6859137265288955,
+                "length": 4.5000000000000036,
+                "width": 2.073231983087161,
+                "height": 1.7832984758113648,
+                "heading": -0.06839511705862845
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "invisible",
+                "Ignore": true
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 11,
+            "points": 13,
+            "bbox": {
+                "center_x": -75.29386412079116,
+                "center_y": -0.98557764445489,
+                "center_z": -0.856312953330888,
+                "length": 4.500000000000003,
+                "width": 1.849998393145134,
+                "height": 2.083984803980351,
+                "heading": 0.006666789069718978
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "occlusion",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Truck",
+            "track_id": 13,
+            "points": 3264,
+            "bbox": {
+                "center_x": -7.024953153825022,
+                "center_y": 11.254998463143124,
+                "center_z": -0.9397918397883949,
+                "length": 5.213814376254824,
+                "width": 1.9463872380631146,
+                "height": 2.2865412468445863,
+                "heading": -3.137262398764255
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "full_visible",
+                "Ignore": false
+            }
+        },
+        {
+            "class": "Car",
+            "track_id": 14,
+            "points": 17,
+            "bbox": {
+                "center_x": 69.81746782684584,
+                "center_y": 9.72990874320235,
+                "center_z": -2.0355147054983873,
+                "length": 4.500000000000003,
+                "width": 1.9203491151368843,
+                "height": 1.5980292858136689,
+                "heading": -3.111068316543495
+            },
+            "global_speed": {
+                "speed_x": null,
+                "speed_y": null
+            },
+            "attributes": {
+                "Occlusion": "occlusion",
+                "Ignore": false
+            }
+        }
+    ]
+}
