@@ -8,6 +8,7 @@ input:
 output: 
 Short Description:
     - 知识点：
+        - os.system()       将字符串转化成命令在服务器上运行
         - os.getcwd()       当前工作目录
         - os.chdir(path)    切换目录
         - os.mkdir(name, mode, dir_fd)        创建目录 创建一级目录

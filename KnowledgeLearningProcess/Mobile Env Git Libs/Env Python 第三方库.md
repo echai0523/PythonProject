@@ -8,6 +8,15 @@
 
 > 将requirements.txt复制到项目所在文件夹里面，新建的项目终端：`pip install -r requirements.txt`
 
+
+
+## 阿里云
+
+- aliyunsdkcore: SDK核心库(`aliyun-python-sdk-core==2.13.36`)
+- aliyunsdksts: `aliyun-python-sdk-sts==3.1.0`
+
+- oss2: `oss2`
+
 ## 请求
 
 ```python
