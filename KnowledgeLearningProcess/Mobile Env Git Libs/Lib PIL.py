@@ -17,10 +17,15 @@ Short Description:
         - get_image_light_mean_sqrt()
         - get_image_light_rms_sqrt()
         - get_image_light_gs()
+
+    - 获取图片宽、高、通道数
+        - get_image_light_gs()
 Change History:
 """
+from io import BytesIO
 from PIL import Image, ImageStat
 import math, requests
+from requests.adapters import HTTPAdapter
 
 
 def get_image_light_mean(dst_src):
@@ -56,4 +61,13 @@ def get_image_light_gs(dst_src):
           for r, g, b in im.getdata())
     return sum(gs) / stat.count[0]
 
+
+def get_image_shape(image):
+    session = requests.Session()
+    session.mount('http://', HTTPAdapter(max_retries=3))
+    session.mount('https://', HTTPAdapter(max_retries=3))
+
+    img = Image.open(BytesIO(session.get(image).content))
+    # 获取通道数 len(img.getbands()) -> len(('R', 'G', 'B')) / len(('L'))
+    return img.width, img.height, len(img.getbands())
 
